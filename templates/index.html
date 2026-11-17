@@ -83,6 +83,19 @@
       <!-- Jumbotron -->
     </header>
 
+    {% if pastes %}
+      <main class="container mt-5">
+        <h2 class="h4">Recent Pastes</h2>
+        <div class="list-group">
+          {% for paste in pastes %}
+            <a class="list-group-item list-group-item-action" href="/view/{{ paste.unique_id }}">
+              {{ paste.title or paste.unique_id }}
+            </a>
+          {% endfor %}
+        </div>
+      </main>
+    {% endif %}
+
     <!--JS-->
     <script type="text/javascript" src="/static/js/mdb.min.js"></script>
     <script type="text/javascript" src="/static/js/common.js"></script>
